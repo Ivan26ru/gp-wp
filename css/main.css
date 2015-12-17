@@ -1,0 +1,82 @@
+body {
+	background-color: white;
+}
+header {
+	background-color: silver;
+	display: block;
+	width: 960px;
+	height: 200px;
+	margin: auto;
+}
+
+.content{
+	width: 960px;
+	margin: auto;
+}
+
+
+h1{
+	margin-bottom: 5px;
+	font-size: 18px;
+	text-align: center;
+}
+
+h2 {
+	margin-bottom: 5px;
+	font-size: 16px;
+	text-align: center;
+}
+
+.block1{
+	margin-top: 20px;
+}
+
+
+.block2 {
+	border: 1px solid grey;
+	background-color: #F5F5F5;
+}
+
+.block2 ul{
+	/*margin: auto;*/
+	text-align: center;
+}
+
+.block2 ul li{
+	display: inline-block;
+	padding: 15px;
+}
+
+
+/*табличное оформление*/
+.block-organization {
+text-align: center;
+}
+
+.block-cell{
+	width: 317px;
+	padding: 0;
+	display: inline-block;
+}
+
+.block-ul{
+	/*width: 300px;*/
+}
+
+.block-ul img{
+	float: left;
+	padding-right: 10px;
+}
+
+.block-ul ul {
+	margin: 10px;
+	padding: 0;
+
+}
+
+
+.block-ul ul li {
+	text-align: left;
+	display: block;
+	padding: 0;
+}
