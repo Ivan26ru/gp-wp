@@ -18,7 +18,8 @@ function typical_title() { // функция вывода тайтла
 
 register_nav_menus(array( // Регистрируем 2 меню
 	'top' => 'Верхнее', // Верхнее
-	'bottom' => 'Внизу' // Внизу
+	'bottom' => 'Внизу', // Внизу
+	'mesta' => 'Места' // Внизу
 ));
 
 add_theme_support('post-thumbnails'); // включаем поддержку миниатюр
