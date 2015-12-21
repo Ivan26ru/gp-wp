@@ -60,3 +60,9 @@
 		?> -->
 
 	</header>
+
+	<!-- левая колонка -->
+<div class="sidebar">
+<?php dynamic_sidebar('left-sidebar'); // выводим сайдбар, имя определено в function.php ?>
+</div>
+<!-- конец левой колонки -->

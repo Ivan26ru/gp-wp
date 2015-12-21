@@ -5,6 +5,14 @@
  * @subpackage your-clean-template
  */
 ?>
+
+<!-- левая колонка -->
+<div class="sidebar">
+<?php dynamic_sidebar('left-sidebar'); // выводим сайдбар, имя определено в function.php ?>
+</div>
+<!-- конец левой колонки -->
+
+
 	<footer>
 		<?php $args = array( // опции для вывода нижнего меню, чтобы они работали, меню должно быть создано в админке
 			'theme_location' => 'bottom', // идентификатор меню, определен в register_nav_menus() в function.php
@@ -12,7 +20,7 @@
 			'menu_class' => 'bottom-menu', // класс для ul
 	  		'menu_id' => 'bottom-nav', // id для ul
 	  	);
-		wp_nav_menu($args); // выводим нижние меню
+		//wp_nav_menu($args); // выводим нижние меню
 		?>
 	</footer>
 <?php wp_footer(); // необходимо для работы плагинов и функционала  ?>
