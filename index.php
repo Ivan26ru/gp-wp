@@ -1,9 +1,10 @@
-<?php
+<?php 
 /**
  * Главная страница (index.php)
  * @package WordPress
  * @subpackage your-clean-template
  */
+
 get_header(); // подключаем header.php ?> 
 <section>
 	<?php if (have_posts()) : while (have_posts()) : the_post(); // если посты есть - запускаем цикл wp ?>

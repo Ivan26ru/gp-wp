@@ -34,7 +34,8 @@
 	<header>
 			<!-- Базовая информация Светлоград -->
 			<div class="block1 block-title">
-				<h1>Базовая информация город Светлоград</h1>
+				<h1><a href="<?php echo home_url(); ?>">Городской портал г.Светлоград</a></h1>
+				<h1 class="logo-name"><a href="<?php echo home_url(); ?>">v-Svetlograde.ru</a></h1>
 				<div class="block2 block-title-2">
 					<ul>
 						<li><i class="fa fa-map-signs fa-2x"></i>Россия, Ставропольский край, Петровский район</li>
