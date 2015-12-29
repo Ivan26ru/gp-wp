@@ -103,6 +103,8 @@ function meta_arr($meta_name){ //Функция для вывода массив
 						$on_off){	//$on_off если данных с этим массивом нету, если параметр оставляем пустым
 		//должно получиться подобное <li class="$teg_class"><span>Телефон:</span> 777</li>
 
+
+			$telefon_cod = '+7 (86547) ';
 			$arr = meta_arr($name); //переменная с массивом из названия ключа
 			$count_arr = count($arr);//количество элементов в массиве
 			if($count_arr > 0 ) { //условие, если массив не пустой выполняется действие
@@ -116,14 +118,14 @@ function meta_arr($meta_name){ //Функция для вывода массив
 							echo '<' . $teg . ' class = "'. $teg_class .'"><' . $teg_title . '>' . $title . ': </'. $teg_title . '><a href="mailto:' . $arr[$i] . '">' . $arr[$i] .'</a></' . $teg . '>';
 							break;
 
+						case 'Телефон(86547)'://если телефон в городе с кодом 8(86547)
+							echo '<' . $teg . ' class = "'. $teg_class .'"><' . $teg_title . '>' . $title . ': </'. $teg_title . '>' . $telefon_cod . $arr[$i] . '</' . $teg . '>';
+							break;
+
 						default://если ни чего не подошло
 							echo '<' . $teg . ' class = "'. $teg_class .'"><' . $teg_title . '>' . $title . ': </'. $teg_title . '>' . $arr[$i] . '</' . $teg . '>';
 							break;
-					}
-					// if($name ==='сайт'){//условие если это сайт то оборачиваем в ссылку,иначе просто выдаем данные
-						// echo '<' . $teg . ' class = "'. $teg_class .'"><' . $teg_title . '>' . $title . ': </'. $teg_title . '><a href="' . $arr[$i] . '">' . $arr[$i] .'</a></' . $teg . '>';
-					// }else
-					// echo '<' . $teg . ' class = "'. $teg_class .'"><' . $teg_title . '>' . $title . ': </'. $teg_title . '>' . $arr[$i] . '</' . $teg . '>';
+					}//конец switch
 				}//цикл перебора
 			}elseif ($name =='Почтовый индекс') {
 							echo '<' . $teg . ' class = "'. $teg_class .'"><' . $teg_title . '>' . $title . ': </'. $teg_title . '>' . '356530' . '</' . $teg . '>';

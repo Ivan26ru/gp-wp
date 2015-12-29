@@ -30,6 +30,7 @@ $on_off = 'true';//крайняя переменная, если запись в
 
 meta_teg($li,$span,$teg_class,$no_data,'Адрес','Адрес');//вывод адреса
 meta_teg($li,$span,$teg_class,$no_data,'Почтовый индекс','Почтовый индекс');//вывод индекса(если его нет выводится 356530)
+meta_teg($li,$span,$teg_class,$no_data,'Городской телефон','Телефон(86547)');//вывод номеров телефона
 meta_teg($li,$span,$teg_class,$no_data,$name_title,$phone);//вывод номеров телефона
 meta_teg($li,$span,$teg_class,$no_data,'Факс','факс',$on_off);//вывод номеров телефона
 meta_teg($li,$span,$teg_class,$no_data,'Адрес сайта','сайт');//вывод адреса сайта
