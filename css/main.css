@@ -7,7 +7,7 @@ footer{
 	max-width:960px;
 }
 
-.block2, .mesta-menu li .sub-menu, article, .sidebar, section, .block-2lv, .div-next-prev a{ /*вид основных блоков сайта*/
+.block2, .mesta-menu li .sub-menu, article, .sidebar, section, .block-2lv, .div-next-prev a, .yandex-maps{ /*вид основных блоков сайта*/
 		background-color: #F5F5F5; /*серый фон*/
 		border: 1px solid grey; /*рамка*/
 box-shadow:         5px 11px 20px 0px rgba(50, 50, 50, 0.63); /*тень*/

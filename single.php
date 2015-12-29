@@ -28,18 +28,24 @@ $phone = 'Телефон';//задаем переменную
 $on_off = 'true';//крайняя переменная, если запись выводить не надо при отсутствующем значении ставим true иначе можно вообще не ставить ничего
 //<li class="$teg_class"><span>Телефон:</span> 777</li>
 
-meta_teg($li,$span,$teg_class,$no_data,'Адрес','Адрес');//вывод адреса
+meta_teg($li,$span,$teg_class,$no_data,'Адрес','Адрес',$on_off);//вывод адреса
+meta_teg($li,$span,$teg_class,$no_data,'Адрес','Адрес(Светлоград)',$on_off);//вывод адреса
 meta_teg($li,$span,$teg_class,$no_data,'Почтовый индекс','Почтовый индекс');//вывод индекса(если его нет выводится 356530)
 meta_teg($li,$span,$teg_class,$no_data,'Городской телефон','Телефон(86547)');//вывод номеров телефона
-meta_teg($li,$span,$teg_class,$no_data,$name_title,$phone);//вывод номеров телефона
+meta_teg($li,$span,$teg_class,$no_data,$name_title,$phone,$on_off);//вывод номеров телефона
 meta_teg($li,$span,$teg_class,$no_data,'Факс','факс',$on_off);//вывод номеров телефона
+meta_teg($li,$span,$teg_class,$no_data,'Руководитель','Руководитель');//вывод руководителя
 meta_teg($li,$span,$teg_class,$no_data,'Адрес сайта','сайт');//вывод адреса сайта
 meta_teg($li,$span,$teg_class,$no_data,'E-mail','E-mail');//вывод E-mail
 meta_teg($li,$span,$teg_class,$no_data,'Время работы','время работы');//вывод E-mail
+// meta_teg('div','','yandex-maps','','','yandex.maps',$on_off);//вывод карты яндекса
 //meta_teg($li,$span,$teg_class,'Время работы','время работы');//вывод время работы
 
 ?>
 		</ul>
+<?php
+yandex_maps_shortcode('yandex-maps');//функция вывода карты из адреса произвольного поля, указываю класс блока, если не указывать, будет просто карта, без блока
+?>
 	</div>
 
 	<div class="block-2lv">
