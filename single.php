@@ -29,10 +29,12 @@ $on_off = 'true';//крайняя переменная, если запись в
 //<li class="$teg_class"><span>Телефон:</span> 777</li>
 
 meta_teg($li,$span,$teg_class,$no_data,'Адрес','Адрес');//вывод адреса
+meta_teg($li,$span,$teg_class,$no_data,'Почтовый индекс','Почтовый индекс');//вывод индекса(если его нет выводится 356530)
 meta_teg($li,$span,$teg_class,$no_data,$name_title,$phone);//вывод номеров телефона
 meta_teg($li,$span,$teg_class,$no_data,'Факс','факс',$on_off);//вывод номеров телефона
 meta_teg($li,$span,$teg_class,$no_data,'Адрес сайта','сайт');//вывод адреса сайта
 meta_teg($li,$span,$teg_class,$no_data,'E-mail','E-mail');//вывод E-mail
+meta_teg($li,$span,$teg_class,$no_data,'Время работы','время работы');//вывод E-mail
 //meta_teg($li,$span,$teg_class,'Время работы','время работы');//вывод время работы
 
 ?>
