@@ -26,10 +26,10 @@ $phone = 'Телефон';//задаем переменную
 $on_off = 'true';//крайняя переменная, если запись выводить не надо при отсутствующем значении ставим true иначе можно вообще не ставить ничего
 //<li class="$teg_class"><span>Телефон:</span> 777</li>
 
-meta_teg($li,$span,$teg_class,$no_data,'Адрес','Адрес(Светлоград)',$on_off);//вывод адреса работы
-meta_teg($li,$span,$teg_class,$no_data,'Адрес','Адрес',$on_off);//вывод адреса работы
-meta_teg($li,$span,$teg_class,$no_data,'Телефон','Телефон(86547)',$on_off);//вывод номеров телефона городских
-meta_teg($li,$span,$teg_class,$no_data,$name_title,$phone,$on_off);//вывод номеров телефона
+meta_teg($li,$span,$teg_class,$no_data,'Адрес','Адрес(Светлоград)','г.Светлоград, ','',$on_off);//вывод адреса работы
+meta_teg($li,$span,$teg_class,$no_data,'Адрес','Адрес','','',$on_off);//вывод адреса работы
+meta_teg($li,$span,$teg_class,$no_data,'Телефон','Телефон(86547)','8 (86547) ','',$on_off);//вывод номеров телефона городских
+meta_teg($li,$span,$teg_class,$no_data,$name_title,$phone,'','',$on_off);//вывод номеров телефона
 
 //meta_teg($li,$span,$teg_class,'Время работы','время работы');//вывод время работы
 ?>

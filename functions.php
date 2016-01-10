@@ -93,6 +93,10 @@ function meta_arr($meta_name){ //Функция для вывода массив
 	return $meta_arr_name; //выводим результат
 }
 
+			$telefon_cod_svetlograd = '8 (86547) ';//вывод телефонного кода
+			$adres_svetlograd_little = 'г.Светлоград, ';//вывод адреса Светлограда только город
+			$adres_svetlograd = 'Ставропольский край, Петровский район, г.Светлоград, ';//вывод адреса Светлограда полностью
+
 	function meta_teg(//функция выбора всех значений метатегов по названию и помещение их в определенный список. переменные:
 						$teg,	// $teg тег в которые будет помещено значение,
 						$teg_title,		// $teg_title оборачивающий тег title,
@@ -100,51 +104,51 @@ function meta_arr($meta_name){ //Функция для вывода массив
 						$no_data,	// $no_data что выводится, если данных нет,
 						$title,		// $title название категории,
 						$name,	// $name значение категории.
-						$on_off){	//$on_off если данных с этим массивом нету, если параметр оставляем пустым
-		//должно получиться подобное <li class="$teg_class"><span>Телефон:</span> 777</li>
+						$prev_name, // $prev_name что будет выподиться перед значением
+						$next_name, // $next_name что будет выподиться после значения
+						$on_off){	//$on_off если поставить любое значение, то при отсутствии данных будет выводиться подобное Телефон: нет данных, если это не нужно можно оставить пустым либо вообще ни чего не вводить
+		//должно получиться подобное <li class="$teg_class"><span>Телефон:</span> текст ПЕРЕД текстом 777 текст ПОСЛЕ текста</li>
 
 
-			$telefon_cod = '+7 (86547) ';//вывод телефонного кода
-			$adres_svetlograd = 'Ставропольский край, Петровский район, г.Светлоград, ';//вывод адреса Светлограда
 			$arr = meta_arr($name); //переменная с массивом из названия ключа
 			$count_arr = count($arr);//количество элементов в массиве
 			if($count_arr > 0 ) { //условие, если массив не пустой выполняется действие
 				for ($i=0; $i<$count_arr; $i++){//цикл перебирает все значения массива
 					switch ($name) { //условие проверки категории и вывод соответствующей статьи
 						case 'сайт'://если сайт
-							echo '<' . $teg . ' class = "'. $teg_class .'"><' . $teg_title . '>' . $title . ': </'. $teg_title . '><a href="' . $arr[$i] . '">' . $arr[$i] .'</a></' . $teg . '>';
+							echo '<' . $teg . ' class = "'. $teg_class .'"><' . $teg_title . '>' . $title . ': </'. $teg_title . '><a href="http://' . $arr[$i] . '">' . $arr[$i] .'</a></' . $teg . '>';
 							break;
 
 						case 'E-mail'://если мыло
 							echo '<' . $teg . ' class = "'. $teg_class .'"><' . $teg_title . '>' . $title . ': </'. $teg_title . '><a href="mailto:' . $arr[$i] . '">' . $arr[$i] .'</a></' . $teg . '>';
 							break;
 
-						case 'Телефон(86547)'://если телефон в городе с кодом 8(86547)
-							echo '<' . $teg . ' class = "'. $teg_class .'"><' . $teg_title . '>' . $title . ': </'. $teg_title . '>' . $telefon_cod . $arr[$i] . '</' . $teg . '>';
-							break;
+						// case 'Телефон(86547)'://если телефон в городе с кодом 8(86547)
+						// 	echo '<' . $teg . ' class = "'. $teg_class .'"><' . $teg_title . '>' . $title . ': </'. $teg_title . '>' . $telefon_cod . $arr[$i] . '</' . $teg . '>';
+						// 	break;
 
-						case 'Адрес(Светлоград)'://если телефон в городе с кодом 8(86547)
-							echo '<' . $teg . ' class = "'. $teg_class .'"><' . $teg_title . '>' . $title . ': </'. $teg_title . '>' . $adres_svetlograd . $arr[$i] . '</' . $teg . '>';
-							break;
+						// case 'Адрес(Светлоград)'://если телефон в городе с кодом 8(86547)
+						// 	echo '<' . $teg . ' class = "'. $teg_class .'"><' . $teg_title . '>' . $title . ': </'. $teg_title . '>' . $adres_svetlograd . $arr[$i] . '</' . $teg . '>';
+						// 	break;
 
 						case 'yandex.maps'://если скрипт карты(не актуально но для резерва оставлю) P.S. использую плагин из yandex сделал функцию выводящую карту по данным произвольного поля
 							echo '<' . $teg . ' class = "'. $teg_class .'">' . $arr[$i] . '</' . $teg . '>';//вывод карты яндекса
 							break;
 
 						default://если ни чего не подошло(стандартная запись)
-							echo '<' . $teg . ' class = "'. $teg_class .'"><' . $teg_title . '>' . $title . ': </'. $teg_title . '>' . $arr[$i] . '</' . $teg . '>';
+							echo '<' . $teg . ' class = "'. $teg_class .'"><' . $teg_title . '>' . $title . ': </'. $teg_title . '>' . $prev_name . $arr[$i] . $next_name . '</' . $teg . '>';
 							break;
 					}//конец switch
 				}//цикл перебора
 			}elseif ($name =='Почтовый индекс') {
 							echo '<' . $teg . ' class = "'. $teg_class .'"><' . $teg_title . '>' . $title . ': </'. $teg_title . '>' . '356530' . '</' . $teg . '>';
 			}elseif(!$on_off){//если массив пустой
-				echo '<' . $teg . ' class = "'. $teg_class .'"><' . $teg_title . '>' . $title . ': </'. $teg_title . '>' . $no_data . '</' . $teg . '>';
+				echo '<' . $teg . ' class = "'. $teg_class .'"><' . $teg_title . '>' . $title . ': </'. $teg_title . '>' . $no_data . '</' . $teg . '>';//значение выводимое при отсутствии данных
 			}//условие перебора конец
 	}//конец фунуции вывода произвольных полей
 
 	function yandex_maps_shortcode($div_class){//функция вывода яндекс карты берет адрес из произвольного поля Адрес(Светлоград) и вставляет его в шорткод из плагина oi-yamaps.zip
-		$adres_map ='';//полный адрес 
+		$adres_map ='';//полный адрес
 		$adres_svetlograd = 'Ставропольский край, Петровский район, г.Светлоград, ';//адрес до г.Светлограда
 		$adres_svetlograd_this_arr = meta_arr('Адрес(Светлоград)');//текущий массив адресов
 		$adres_svetlograd_this = $adres_svetlograd_this_arr[0];//текущий массив адреса
@@ -152,9 +156,9 @@ function meta_arr($meta_name){ //Функция для вывода массив
 
 		$maps_shortcode = do_shortcode('[showyamap][placemark address="' . $adres_map . '"][/showyamap]'); //код вывода шорткода с местом взятым из произвольного поля
 		if ($adres_svetlograd_this) {//условие проверки есть ли произвольное поле адреса или нет для этого поста, если нет, то ничего не выполняется
-			
+
 			if($div_class){//условие если переменную для функции назначили тогда
-				echo '<div class="' . $div_class . '">' . $maps_shortcode . '</div>';//оборачиваем карту в блок div и задаем ему класс согласно переменной	
+				echo '<div class="' . $div_class . '">' . $maps_shortcode . '</div>';//оборачиваем карту в блок div и задаем ему класс согласно переменной
 			}else {//если для функции данные не передавались выполняется
 				echo $maps_shortcode;//просто выводится карта без блока
 			}//конец условия по назначению блока и класса

@@ -7,7 +7,7 @@ footer{
 	max-width:960px;
 }
 
-.block2, .mesta-menu li .sub-menu, article, .sidebar, section, .block-2lv, .div-next-prev a, .yandex-maps{ /*вид основных блоков сайта*/
+.block2, .mesta-menu li .sub-menu, article, .sidebar, section, .block-2lv, .yandex-maps{ /*вид основных блоков сайта*/
 		background-color: #F5F5F5; /*серый фон*/
 		border: 1px solid grey; /*рамка*/
 box-shadow:         5px 11px 20px 0px rgba(50, 50, 50, 0.63); /*тень*/
@@ -133,10 +133,14 @@ text-align: center;
 /* 	background-color:rebeccapurple; */
 	width:322px;
 	display:inline-block;
-	margin:10px 5px 0;
+/* 	margin:10px 5px 0; */
 	padding:0;
 	height:inherit;
 	vertical-align: top;
+}
+
+.mesta-menu .sub-menu li{
+	margin:10px 5px 0;
 }
 
 .mesta-menu li a{
@@ -164,6 +168,7 @@ section{
 	margin-left:auto;
 	margin-right:auto;
 	max-width:910px;
+	min-width: 240px;
 }
 
 .category-h1{
@@ -180,10 +185,10 @@ section{
 .category-img {
 	float:left;
 	width:200px;
-	width:inherit;
+	/*width:inherit;*/
 	height:150px;;
 	min-height: 1px;
-    min-width: 200px;
+    /*min-width: 200px;*/
     border-radius:25px;
     border:3px solid silver;
     overflow:hidden;
@@ -202,6 +207,7 @@ section{
 
 .category-title {
 	text-align:center;
+	width: 410px;
 }
 
 .category-meta {
@@ -247,54 +253,78 @@ max-width:470px;
 padding-top:40px;
 }
 
-/*Одна запись нижние углы ровные*/
-#single{
-	margin-bottom:0;
-	border-radius:25px 25px 0 0;
-}
-
 
 /* Одна запись кнопки вперед назад */
 .div-next-prev{
-	margin-top:0;
-}
-
-.div-next-prev a{
-	/*width:40%;*/
-}
-
-.div-next-prev a:hover{
-	color:black;
-
-
-}
-
-.div-next-prev a[rel="prev"]:hover {
-		background: rgb(226, 226, 226);
-background: -moz-linear-gradient(0deg, rgb(226, 226, 226) 49%, rgb(255, 255, 255) 100%);
-background: -webkit-linear-gradient(0deg, rgb(226, 226, 226) 49%, rgb(255, 255, 255) 100%);
-background: -o-linear-gradient(0deg, rgb(226, 226, 226) 49%, rgb(255, 255, 255) 100%);
-background: -ms-linear-gradient(0deg, rgb(226, 226, 226) 49%, rgb(255, 255, 255) 100%);
-background: linear-gradient(90deg, rgb(226, 226, 226) 49%, rgb(255, 255, 255) 100%);
+	margin-top:-20px;
+	margin-bottom:30px;
 }
 
 .div-next-prev a[rel="prev"] {
 	float:left;
-	border-radius:0 0 50px 50px;
-}
-
-.div-next-prev a[rel="next"]:hover {
-background: rgb(226, 226, 226);
-background: -moz-linear-gradient(180deg, rgb(226, 226, 226) 49%, rgb(255, 255, 255) 100%);
-background: -webkit-linear-gradient(180deg, rgb(226, 226, 226) 49%, rgb(255, 255, 255) 100%);
-background: -o-linear-gradient(180deg, rgb(226, 226, 226) 49%, rgb(255, 255, 255) 100%);
-background: -ms-linear-gradient(180deg, rgb(226, 226, 226) 49%, rgb(255, 255, 255) 100%);
-background: linear-gradient(270deg, rgb(226, 226, 226) 49%, rgb(255, 255, 255) 100%);
 }
 
 .div-next-prev a[rel="next"]:last-child {
 	float:right;
-	border-radius:0 0 50px 50px;
 }
 
 /* конец кнопок вперед назад */
+
+/* номера страниц */
+.page-numbers {
+	width:100%;
+	text-align:center;
+}
+.page-numbers li {
+	display:inline-block;
+	margin:0 10px;
+}
+
+.page-numbers li a, .page-numbers li span, .div-next-prev a{
+background-color:;
+padding:10px;
+border-radius:100px;
+border:2px grey solid;
+
+}
+
+.page-numbers a:hover, .div-next-prev a:hover{
+	border:2px black solid;
+	background-color:white;
+}
+
+.page-numbers li span {
+	border:2px black solid;
+	background-color:white;
+
+}
+/*конец номеров страниц*/
+
+/*вставка погода*/
+.info-li {
+	display:inline-block;
+	max-width:750px;
+}
+
+.yandex-pogoda {
+	display:inline-block;
+	padding:0;
+	overflow:hidden;
+}
+
+/*конец вставка погода*/
+
+
+/* тень и небольшая рамка картинки */
+.single-img img{
+	text-align:center;
+	width:300px;
+	height:200px;
+	padding:5px;
+
+-webkit-box-shadow: 5px 11px 20px 0px rgba(50, 50, 50, 0.63);
+-moz-box-shadow:    5px 11px 20px 0px rgba(50, 50, 50, 0.63);
+box-shadow:         5px 11px 20px 0px rgba(50, 50, 50, 0.63);
+border-radius:25px;
+}
+/* конец тень и небольшая рамка картинки */

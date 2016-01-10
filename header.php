@@ -37,7 +37,7 @@
 				<h1><a href="<?php echo home_url(); ?>">v-Svetlograde.ru Городской портал Светлограда</a></h1>
 				<!-- <h1 class="logo-name"><a href="<?php echo home_url(); ?>">v-Svetlograde.ru</a></h1> -->
 				<div class="block2 block-title-2">
-					<ul>
+					<ul class="info-li">
 						<li><i class="fa fa-map-signs fa-2x"></i>Россия, Ставропольский край, Петровский район</li>
 						<li><i class="fa fa-globe fa-2x"></i>Основан в 1786</li>
 						<li><i class="fa fa-child fa-2x"></i>37 819 человек</li>
@@ -47,6 +47,9 @@
 						<li><i class="fa fa-taxi fa-2x"></i>от 50 рублей</li>
 						<li><i class="fa fa-envelope-o fa-2x"></i>356530</li>
 					</ul>
+					<div class="yandex-pogoda">
+						<a href="https://clck.yandex.ru/redir/dtype=stred/pid=7/cid=1228/*https://pogoda.yandex.ru/svetlograd" target="_blank"><img src="//info.weather.yandex.net/svetlograd/3.ru.png?domain=ru" border="0" alt="Яндекс.Погода"/><img width="1" height="1" src="https://clck.yandex.ru/click/dtype=stred/pid=7/cid=1227/*https://img.yandex.ru/i/pix.gif" alt="" border="0"/></a>
+					</div>
 				</div>
 			</div>
 			<!-- конец базовой информации Светлоград -->
