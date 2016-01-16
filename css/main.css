@@ -328,3 +328,10 @@ box-shadow:         5px 11px 20px 0px rgba(50, 50, 50, 0.63);
 border-radius:25px;
 }
 /* конец тень и небольшая рамка картинки */
+
+/*Описание рублики*/
+.archive-meta {
+	text-align:left;
+	text-indent:15px;
+}
+/*Конец описания рублики*/

@@ -166,5 +166,23 @@ function meta_arr($meta_name){ //Функция для вывода массив
 
 	}//конец функции вывода карты
 
+//обрезание описания рубрик и меток в админке сайта start
+function wph_trim_cats() {
+    add_filter('get_terms', 'wph_truncate_cats_description', 10, 2);
+}
+function wph_truncate_cats_description($terms, $taxonomies) {
+    if('category' != $taxonomies[0] and 'post_tag' != $taxonomies[0])
+        return $terms;
+    foreach($terms as $key=>$term) {
+        $terms[$key]->description = mb_substr($term->description, 0, 80);
+        if($terms[$key]->description != '') {
+            $terms[$key]->description .= '...';
+        }
+    }
+    return $terms;
+}
+add_action('admin_head-edit-tags.php', 'wph_trim_cats');
+//обрезание описания рубрик и меток в админке сайта end
+
 //НИ В КОЕМ СЛУЧАЕ НЕ ОСТАВЛЯТЬ ПУСТЫХ СТРОК ПОСЛЕ СИМВОЛА КОНЦА СТРОК
 ?>

@@ -35,6 +35,7 @@ meta_teg($li,$span,$teg_class,$no_data,'Почтовый индекс','Почт
 meta_teg($li,$span,$teg_class,$no_data,'Городской телефон','Телефон(86547)',$telefon_cod_svetlograd,'');//вывод номеров телефона
 meta_teg($li,$span,$teg_class,$no_data,$name_title,$phone,'','',$on_off);//вывод номеров телефона
 meta_teg($li,$span,$teg_class,$no_data,'Факс','факс','','',$on_off);//вывод номеров телефона
+meta_teg($li,$span,$teg_class,$no_data,'Факс','факс(86547)',$telefon_cod_svetlograd,'',$on_off);//вывод номеров телефона
 meta_teg($li,$span,$teg_class,$no_data,'Руководитель','Руководитель','','');//вывод руководителя
 meta_teg($li,$span,$teg_class,$no_data,'Адрес сайта','сайт','','');//вывод адреса сайта
 meta_teg($li,$span,$teg_class,$no_data,'E-mail','E-mail');//вывод E-mail
