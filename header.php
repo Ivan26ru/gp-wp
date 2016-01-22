@@ -9,6 +9,11 @@
 <html <?php language_attributes(); // вывод атрибутов языка ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); // кодировка ?>">
+	<meta name="description" content="<?php
+the_title();//Заголовок страницы
+the_meta();//вывод данных произвольных полей на страничке
+//краткое описание страницы?>" />
+	<!-- <meta name="keywords" content="<?php the_tags('',',',''); // ссылки на тэги поста  //ключевые слова страницы?>" /> -->
 	<?php /* RSS и всякое */ ?>
 
 		<!-- Обнуление -->

@@ -7,7 +7,7 @@ footer{
 	max-width:960px;
 }
 
-.block2, .mesta-menu li .sub-menu, article, .sidebar, section, .block-2lv, .yandex-maps{ /*вид основных блоков сайта*/
+.block2, .mesta-menu li .sub-menu, article, .sidebar, section, .block-2lv, .yandex-maps, .meta-category a, .home-page, .comment-list{ /*вид основных блоков сайта*/
 		background-color: #F5F5F5; /*серый фон*/
 		border: 1px solid grey; /*рамка*/
 box-shadow:         5px 11px 20px 0px rgba(50, 50, 50, 0.63); /*тень*/
@@ -43,9 +43,12 @@ header {
 	padding:15px;
 }
 
-.widget_search{ /*строка поиска*/
-	display:block;
-	text-align:right;
+.sidebar{
+	text-align:center;
+}
+
+.widget { /*виджеты*/
+	display:inline-block;
 }
 
 .content{
@@ -205,11 +208,6 @@ section{
 	height:100%;
 }
 
-.category-title {
-	text-align:center;
-	width: 410px;
-}
-
 .category-meta {
 	float:right;
 	width:250px;
@@ -247,9 +245,10 @@ clear: both;
 
 .category-title {
 /* 	background-color:red; */
+text-align:center;
+max-width: 410px;
 display:inline-block;
 margin:auto;
-max-width:470px;
 padding-top:40px;
 }
 
@@ -288,7 +287,7 @@ border:2px grey solid;
 
 }
 
-.page-numbers a:hover, .div-next-prev a:hover{
+.page-numbers a:hover, .div-next-prev a:hover, .meta-category a:hover, .home-page:hover{
 	border:2px black solid;
 	background-color:white;
 }
@@ -335,3 +334,22 @@ border-radius:25px;
 	text-indent:15px;
 }
 /*Конец описания рублики*/
+
+/*Навигация по категориям*/
+.meta-category a{
+	border: 2px solid grey; /*рамка*/
+	padding: 5px;
+	margin: 3px;
+}
+
+.home-page{
+	padding:10px;
+	border:2px solid grey;
+}
+
+/*КОСТЫЛЬ*/
+/*В сайдбаре два раза посторялся заголовок рублик*/
+.sidebar .widgettitle{
+	display:none;
+}
+/*КОНЕЦ КОСТЫЛЯ*/

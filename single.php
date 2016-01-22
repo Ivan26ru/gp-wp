@@ -11,8 +11,8 @@ get_header(); // подключаем header.php ?>
 		<h1><?php the_title(); // заголовок поста ?></h1>
 		<div class="meta">
 			<!-- <p>Опубликовано: <?php the_time('F j, Y'); ?> в <?php the_time('g:i a'); ?></p> <?php // дата и время создания ?> -->
-			<p>Категории: <?php the_category(',') ?></p> <?php // ссылки на категории в которых опубликован пост, через зпт ?>
-			<?php the_tags('<p>Тэги: ', ',', '</p>'); // ссылки на тэги поста ?>
+			<p class="meta-category">Навигация: <?php the_category('<i class="fa fa-angle-double-right"></i>') ?></p> <?php // ссылки на категории в которых опубликован пост, через зпт ?>
+			<?php the_tags('<p>Тэги: ', ', ', '</p>'); // ссылки на тэги поста ?>
 		</div>
 
 <div class="block-2lv">
