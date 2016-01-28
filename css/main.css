@@ -7,7 +7,7 @@ footer{
 	max-width:960px;
 }
 
-.block2, .mesta-menu li .sub-menu, article, .sidebar, section, .block-2lv, .yandex-maps, .meta-category a, .home-page, .comment-list{ /*вид основных блоков сайта*/
+.block2, .mesta-menu li .sub-menu, article, .sidebar, section, .block-2lv, .yandex-maps, .meta-category a, .home-page, .comment-list, .comment-list li, .menu-top li a, .button{ /*вид основных блоков сайта*/
 		background-color: #F5F5F5; /*серый фон*/
 		border: 1px solid grey; /*рамка*/
 box-shadow:         5px 11px 20px 0px rgba(50, 50, 50, 0.63); /*тень*/
@@ -18,13 +18,18 @@ padding:25px;/*внутренний отступ*/
 margin-bottom:30px;/*внешний отступ*/
 }
 
+.menu-top li a:hover, .button:hover, .block2:hover, article:hover{
+	background-color:white;
+	border-color:gold;
+}
+
 a {
 	color:blue;
 	text-decoration:none;
 	/*text-shadow: 5px 5px 7px rgba(85, 119, 115, 1);*/
 }
 
-a:hover {
+a:hover{
 	text-decoration:underline;
 	text-shadow: 5px 5px 7px rgba(255, 155, 0, 1);
 }
@@ -56,11 +61,14 @@ header {
 	margin: auto;
 }
 
+.block-title {
+	text-align:center;
+}
 
-h1{
+.logo-titile{
 	margin-bottom: 5px;
-	font-size: 18px;
-	text-align: center;
+	font-size: 28px;
+	text-align:center;
 }
 
 h2 {
@@ -174,10 +182,6 @@ section{
 	min-width: 240px;
 }
 
-.category-h1{
-	color:
-}
-
 .category {
 	min-height:110px;
 	margin:20px 0;
@@ -287,9 +291,7 @@ border:2px grey solid;
 
 }
 
-.page-numbers a:hover, .div-next-prev a:hover, .meta-category a:hover, .home-page:hover{
-	border:2px black solid;
-	background-color:white;
+
 }
 
 .page-numbers li span {
@@ -342,10 +344,7 @@ border-radius:25px;
 	margin: 3px;
 }
 
-.home-page{
-	padding:10px;
-	border:2px solid grey;
-}
+
 
 /*КОСТЫЛЬ*/
 /*В сайдбаре два раза посторялся заголовок рублик*/
@@ -353,3 +352,39 @@ border-radius:25px;
 	display:none;
 }
 /*КОНЕЦ КОСТЫЛЯ*/
+
+.comment-form label {
+	margin-bottom:10px;
+	display:block;
+	width:200px
+}
+
+/*Убилаю точки(маркеры) списка в комментах*/
+.comment-list li {
+	list-style-type:none;
+}
+
+/*блок с верхнего меню*/
+.width960 {
+	max-width:930px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	padding:15px;
+}
+
+.menu-top {
+	display:inline-block;
+	text-align:center;
+}
+
+.menu-top li{
+	display:inline-block;
+}
+
+.menu-top li a, .button{
+	display:inline-block;
+	margin:0 10px;
+	padding:10px;
+	border:2px solid grey;
+}

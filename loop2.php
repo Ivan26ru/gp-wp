@@ -34,13 +34,10 @@ meta_teg($li,$span,$teg_class,$no_data,$name_title,$phone,'','',$on_off);//вы�
 //meta_teg($li,$span,$teg_class,'Время работы','время работы');//вывод время работы
 ?>
 		</ul>
-
-
-
 <?php //$phone = get_post_custom_values('phone');?>
-
 <?php //the_meta(); ?>
 <!-- Телефон: <?php echo $phone[0];?><br /> -->
+
 
 		</div>
 	</article>

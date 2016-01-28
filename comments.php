@@ -29,9 +29,9 @@
 	<?php if (comments_open()) { // если комментирование включено для данного поста
 		/* ФОРМА КОММЕНТИРОВАНИЯ */
 		$fields =  array( // разметка текстовых полей формы
-			'author' => '<label for="author">Имя <input id="author" name="author" type="text" value="'.esc_attr($commenter['comment_author']).'" size="30" required></label>', // поле Имя
-			'email' => '<label for="email">Email<input id="email" name="email" type="text" value="'.esc_attr($commenter['comment_author_email']).'" size="30" required></label>', // поле email
-			'url' => '<label for="url">Сайт<input id="url" name="url" type="text" value="'.esc_attr($commenter['comment_author_url']).'" size="30"></label>', // поле сайт
+			'author' => '<label for="author"> <span class="comment-span">Имя</span><input id="author" name="author" type="text" value="'.esc_attr($commenter['comment_author']).'" size="30" required></label>', // поле Имя
+			'email' => '<label for="email"><span class="comment-span">Email</span><input id="email" name="email" type="text" value="'.esc_attr($commenter['comment_author_email']).'" size="30" required></label>', // поле email
+			//'url' => '<label for="url"><span class="comment-span">Сайт</span><input id="url" name="url" type="text" value="'.esc_attr($commenter['comment_author_url']).'" size="30"></label>', // поле сайт
 			);
 		$args = array( // опции формы комментирования
 			'fields' => apply_filters('comment_form_default_fields', $fields), // заменяем стандартные поля на поля из массива выше ($fields)
