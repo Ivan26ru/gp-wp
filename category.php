@@ -23,7 +23,9 @@ echo '<div class="archive-meta">' . $category_description . '</div>';//вста�
 
 <!-- ПОСТЫ -->
 	<?php if (have_posts()) : while (have_posts()) : the_post(); // если посты есть - запускаем цикл wp ?>
-	<?php get_template_part('loop2'); // для отображения каждой записи берем шаблон loop2.php ?>
+	<?php if (is_category('ads')) {
+		get_template_part('loop-ads');
+	}else{ get_template_part('loop2');} // для отображения каждой записи берем шаблон loop2.php ?>
 	<?php endwhile; // конец цикла
 	else: echo '<h2>Нет записей.</h2>';endif; // если записей нет, напишим "простите" ?>
 	<?php pagination(); // пагинация, функция нах-ся в function.php ?>

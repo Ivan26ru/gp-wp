@@ -15,5 +15,18 @@ get_header(); // подключаем header.php ?>
 'after'=>'') );
 } ?>
 
+<!-- <div class="width960 block2">
+	<h1>Магазины, торговые центры</h1>
+</div>
+
+<?php if (is_front_page()) {//если главная страница
+ wp_nav_menu( array(
+'container' => 'div', // (string) Контейнер меню. Обворачиватель ul. Указывается тег контейнера (по умолчанию в тег div)
+'container_class' => 'mesta-div shop', // (string) class контейнера (div тега)
+'menu_class'=>'mesta-menu',
+'theme_location'=>'shop',
+'after'=>'') );
+} ?>
+ -->
 <?//php get_sidebar(); // подключаем sidebar.php ?>
 <?php get_footer(); // подключаем footer.php ?>

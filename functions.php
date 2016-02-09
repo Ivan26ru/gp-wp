@@ -19,7 +19,8 @@ function typical_title() { // функция вывода тайтла
 register_nav_menus(array( // Регистрируем 3 меню
 	'top' => 'Верхнее', // Верхнее
 	'bottom' => 'Внизу', // Внизу
-	'mesta' => 'Места' // Внизу
+	'shop' => 'магазины покупки', // список разных магазинов, покупок
+	'mesta' => 'Места' // Места
 ));
 
 add_theme_support('post-thumbnails'); // включаем поддержку миниатюр
@@ -210,6 +211,152 @@ function more_posts() {
   global $wp_query;
   return $wp_query->current_post + 1 < $wp_query->post_count;
 };
+
+//ОГРАНИЧЕНИЯ В РЕДАКТОРЕ, ЕСЛИ ПОЛЬЗОВАТЕЛЬ НЕ АДМИН
+if( !current_user_can('manage_options') ){ //ЕСЛИ ПОЛЬЗОВАТЕЛЬ НЕ АДМИН
+	function remove_my_post_metaboxes() {
+	// remove_meta_box( 'authordiv','post','normal' ); // Автор
+	remove_meta_box( 'commentstatusdiv','post','normal' ); // Статус комментариев РАБОТАЕТ
+	// remove_meta_box( 'commentsdiv','post','normal' ); // Комментарии //НЕ ПОНЯТНО
+	remove_meta_box( 'postcustom','post','normal' ); // Произвольные поля
+	remove_meta_box( 'postexcerpt','post','normal' ); // Цитата РАБОТАЕТ
+	// remove_meta_box( 'revisionsdiv','post','normal' ); // Редакции
+	remove_meta_box( 'slugdiv','post','normal' ); // Ярлык РАБОТАЕТ
+	remove_meta_box( 'trackbacksdiv','post','normal' ); // Обратные ссылки РАБОТАЕТ
+	// remove_meta_box( 'categorydiv','post','normal' ); // Рублика РАБОТАЕТ
+	// remove_meta_box( 'aiosp','post','normal' ); // проба сео РАБОТАЕТ
+	// remove_meta_box( 'formatdiv','post','normal' ); // Формат
+	// remove_meta_box( 'postimagediv','post','normal' ); // Миниатюра записи
+	// remove_meta_box( 'submitdiv','post','normal' ); // Категория //НЕ ПОНЯТНО, ЧТО ОТКЛЮЧАЕТ
+	// remove_meta_box( 'tagsdiv-post_tag','post','normal' ); // Метки(теги)
+	}
+	//add_action('admin_menu','remove_my_post_metaboxes');
+
+
+
+	add_action('admin_menu','remove_my_post_metaboxes');//ОГРАНИЧЕНИЯ В РЕДАКТОРЕ
+}
+
+//вывод скрытых произвольных полей start
+//add_filter('is_protected_meta', '__return_false', 999);
+//вывод скрытых произвольных полей end
+
+
+
+
+
+//ПРОБА ВЫЗОВА ВИДЖЕТА В ДОБАВЛЕНИИ ЗАПИСИ
+/**
+ * Используем действие admin_menu для определения нашего виджета-коробочки.
+ */
+//add_action('admin_menu', 'new_add_custom_box');
+
+/**
+ * Задаем "координаты", куда добавить новый блок.
+ */
+function new_add_custom_box() {
+    add_meta_box('select_your_city', // Идентификатор новой секции экрана.
+     'Выберите город', // Заголовок виджета.
+     'city_custom_box', // Callback: см. функцию ниже.
+     'post', // Тип записи.
+     'side', // Положение: правый бок.
+     'high'); // Приоритет показа.
+}
+
+/**
+ * Подготавливаем список значений произвольных полей.
+ */
+function city_custom_box() {
+    // Получаем мета-данные произвольного поля.
+    global $post;
+    $data = get_post_meta($post->ID,'_user_burg',true);
+
+    // Для проверки поступающего POST-запроса.
+    print '<input type="hidden" name="town_submit" id="town_submit" value="'.wp_create_nonce('user-burg').'" />';// wp_create_nonce() функция создает уникальное значение на 24 часа
+
+    // Внешний вид поля для ввода данных.
+    print '<label for="user_burg">Цена: </label>';
+    print '<select name="user_burg" id="user_burg">';
+
+    // Создаем и выводим массив, содержащий список городов.
+    $towns = array('Москва',
+       'Санкт-Петербург',
+       'Ярославль',
+       'Иркутск',
+       'Красноярск');
+    foreach ($towns as $town) {//цикл переберает весь массив и поочереди присваивает значение массива переменной $town
+        echo '<option value="'.$town.'"';//вписать значение элемента массива
+        if ($data == $town) echo ' selected="selected"';//Если элемент массива равен уже имеющему значению присваивается ключ selected ВЫБРАННЫЙ //<option value="Москва" selected="selected">Москва</option>
+        echo '>'.$town.'</option>';//закрыть тег с дописанием содержимого элементом массива
+    }//<option value="Москва">Москва</option>
+
+    print "</select>";
+}
+
+/**
+ * Используем действие save_post для сохранения заполенной информации.
+ */
+//add_action('save_post', 'example_save_postdata');
+
+/**
+ * Когда запись сохранена, сохраняем значение произвольного поля.
+ */
+function example_save_postdata($post_id) {
+    // Верификация.
+    if (!wp_verify_nonce($_POST['town_submit'], 'user-burg')) return $post_id;
+
+    // Не запоминаем ничего, если это всего лишь автосохранение.
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return $post_id;
+
+    $t = $_POST['user_burg'];
+    update_post_meta($post_id, '_user_burg', $t);
+}
+
+//тег img в комментариях start
+global $allowedtags;
+$allowedtags_add = array ('img' => array ('src' => array(), 'alt' => array(),
+    'title' => array(), 'height' => array(), 'width' => array()) );
+$allowedtags = array_merge ($allowedtags, $allowedtags_add);
+//тег img в комментариях end
+
+
+
+// удаляем строку email  и сайт в комментариях НАЧАЛО
+function remove_comment_fields($fields) {
+unset($fields['url']);
+unset($fields['email']);
+return $fields;
+}
+add_filter('comment_form_default_fields', 'remove_comment_fields');
+// удаляем строку email  и сайт в комментариях КОНЕЦ
+
+
+// Переместить Поле Текста Комментария Вниз НАЧАЛО
+function devise_move_comment_field_to_bottom( $fields ) {
+$comment_field = $fields['comment'];
+unset( $fields['comment'] );
+$fields['comment'] = $comment_field;
+return $fields;
+}
+
+add_filter( 'comment_form_fields', 'devise_move_comment_field_to_bottom' );
+// Переместить Поле Текста Комментария Вниз КОНЕЦ
+
+
+//Замена миниатюры на первую картинку
+function catch_that_image() {
+  global $post, $posts;
+  $first_img = '';
+  ob_start();
+  ob_end_clean();
+  $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+  $first_img = $matches [1] [0];
+
+  if(empty($first_img)){ //Defines a default image
+    $first_img = meta_arr('Изображение');
+  }
+  return $first_img;
+}
 
 //НИ В КОЕМ СЛУЧАЕ НЕ ОСТАВЛЯТЬ ПУСТЫХ СТРОК ПОСЛЕ СИМВОЛА КОНЦА СТРОК
 ?>

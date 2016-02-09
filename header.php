@@ -33,12 +33,18 @@ the_title();//Заголовок страницы
 	 <![endif]-->
 	<title><?php typical_title(); // выводи тайтл, функция лежит в function.php ?></title>
 	<?php wp_head(); // необходимо для работы плагинов и функционала ?>
-</head>
+
+	<!-- подключение библиотеки --><!--
+	<script src="<?php echo get_template_directory_uri(); // абсолютный путь до темы ?>/jq/jquery.min.js"></script>
+ -->
+	<!-- Подключение моего скрипта -->
+	<script src="<?php echo get_template_directory_uri(); // абсолютный путь до темы ?>/js/myjs.js"></script>
+ </head>
 <body <?php body_class(); // все классы для body ?>>
 	<header>
 			<!-- Базовая информация Светлоград -->
 			<div class="block1 block-title">
-				<h1 class="block2"><a class="logo-titile" href="<?php echo home_url(); ?>">v-Svetlograde.ru Городской портал Светлограда</a></h1>
+				<h1 class="block2 in-home-page block_click"><a class="logo-titile block_click_a" href="<?php echo home_url(); ?>">v-Svetlograde.ru Городской портал Светлограда</a></h1>
 				<!-- <h1 class="logo-name"><a href="<?php echo home_url(); ?>">v-Svetlograde.ru</a></h1> -->
 				<div class="block2 block-title-2">
 					<ul class="info-li">
@@ -67,10 +73,10 @@ the_title();//Заголовок страницы
 <!-- <div class="block2 authorization">
 
 </div> -->
-<div class="width960 block2">
+<div class="width960 block2 navigation">
 <!-- верхнее меню -->
 <?php $menu_top = array(
-        'menu'            => 'top',              // (string) Название выводимого меню (указывается в админке при создании меню, приоритетнее 
+        'menu'            => 'top',              // (string) Название выводимого меню (указывается в админке при создании меню, приоритетнее
                                                                                   // чем указанное местоположение theme_location - если указано, то параметр theme_location игнорируется)
         'container'       => '',           // (string) Контейнер меню. Обворачиватель ul. Указывается тег контейнера (по умолчанию в тег div)
         'container_class' => '',              // (string) class контейнера (div тега)
@@ -93,7 +99,7 @@ wp_nav_menu($menu_top);
  if ( is_user_logged_in() ) {
  	global $current_user;
 	get_currentuserinfo();
-	echo "<a class=\"button\" href=\"http://v-svetlograde.ru/forums/user/" . $current_user->user_login . "/\">Привет " . $current_user->user_login . "</a>";
+	echo "<a class=\"button\" href=\"http://v-svetlograde.ru/forums/user/" . $current_user->user_login . "/\">Привет " . $current_user->display_name . "</a>";//ссылка на профиль и имя ссылки "Отображать как" в профиле
 }
 else {
 	echo '<a class="button" href="http://v-svetlograde.ru/wp-login.php"><i class="fa fa-sign-in fa-1x"></i>Вход или регистрация</a>';
