@@ -74,7 +74,26 @@ yandex_maps_shortcode('yandex-maps');//функция вывода карты и
 </div>
 
 	<div class="block-2lv">
-		<?php if (comments_open() || get_comments_number()) comments_template('', true); // если комментирование открыто - мы покажем список комментариев и форму, если закрыто, но кол-во комментов > 0 - покажем только список комментариев ?>
+	<!-- отключение стандартных комментариев -->
+		<?php //if (comments_open() || get_comments_number()) comments_template('', true); // если комментирование открыто - мы покажем список комментариев и форму, если закрыто, но кол-во комментов > 0 - покажем только список комментариев ?>
+<!-- НАЧАЛО ВК кнопка сохранить -->
+<!-- Put this script tag to the place, where the Share button will be -->
+<script type="text/javascript">
+document.write(VK.Share.button(false,{type: "round", text: "Сохранить в ВК"}));
+</script>
+<!-- КОНЕЦ ВК кнопка сохранить -->
+
+<br>
+<noindex>
+	<!-- НАЧАЛО комментарии из ВК -->
+	<!-- Put this div tag to the place, where the Comments block will be -->
+	<div id="vk_comments"></div>
+	<script type="text/javascript">
+	VK.Widgets.Comments("vk_comments", {limit: 10, width: "800", attach: "*"});
+	</script>
+	<!-- КОНЕЦ комментарии из ВК -->
+</noindex>
+
 	</div>
 </section>
 

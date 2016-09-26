@@ -126,9 +126,9 @@ function meta_arr($meta_name){ //Функция для вывода массив
 			if($count_arr > 0 ) { //условие, если массив не пустой выполняется действие
 				for ($i=0; $i<$count_arr; $i++){//цикл перебирает все значения массива
 					switch ($name) { //условие проверки категории и вывод соответствующей статьи
-						case 'сайт'://если сайт
-							echo '<' . $teg . ' class = "'. $teg_class .'"><' . $teg_title . '>' . $title . ': </'. $teg_title . '><a href="http://' . $arr[$i] . '">' . $arr[$i] .'</a></' . $teg . '>';
-							break;
+						// case 'сайт'://если сайт
+						// 	echo '<' . $teg . ' class = "'. $teg_class .'"><' . $teg_title . '>' . $title . ': </'. $teg_title . '><a href="http://' . $arr[$i] . '">' . $arr[$i] .'</a></' . $teg . '>';
+						// 	break;
 
 						case 'E-mail'://если мыло
 							echo '<' . $teg . ' class = "'. $teg_class .'"><' . $teg_title . '>' . $title . ': </'. $teg_title . '><a href="mailto:' . $arr[$i] . '">' . $arr[$i] .'</a></' . $teg . '>';
@@ -238,11 +238,18 @@ if( !current_user_can('manage_options') ){ //ЕСЛИ ПОЛЬЗОВАТЕЛЬ �
 }
 
 //вывод скрытых произвольных полей start
-//add_filter('is_protected_meta', '__return_false', 999);
+// add_filter('is_protected_meta', '__return_false', 999);
 //вывод скрытых произвольных полей end
 
 
+// отображение скрытых произвольных полей 2 start
+	// function show_protected_custom_fields( $protected, $meta_key, $meta_type ) {
+	// 		if ( isset( $meta_key ))
+	// 			return false;
+	// }
 
+	// add_filter( 'is_protected_meta', 'show_protected_custom_fields', 20, 3 );
+// отображение скрытых произвольных полей 2 end
 
 
 //ПРОБА ВЫЗОВА ВИДЖЕТА В ДОБАВЛЕНИИ ЗАПИСИ
@@ -266,32 +273,32 @@ function new_add_custom_box() {
 /**
  * Подготавливаем список значений произвольных полей.
  */
-function city_custom_box() {
-    // Получаем мета-данные произвольного поля.
-    global $post;
-    $data = get_post_meta($post->ID,'_user_burg',true);
+// function city_custom_box() {
+//     // Получаем мета-данные произвольного поля.
+//     global $post;
+//     $data = get_post_meta($post->ID,'_user_burg',true);
 
-    // Для проверки поступающего POST-запроса.
-    print '<input type="hidden" name="town_submit" id="town_submit" value="'.wp_create_nonce('user-burg').'" />';// wp_create_nonce() функция создает уникальное значение на 24 часа
+//     // Для проверки поступающего POST-запроса.
+//     print '<input type="hidden" name="town_submit" id="town_submit" value="'.wp_create_nonce('user-burg').'" />';// wp_create_nonce() функция создает уникальное значение на 24 часа
 
-    // Внешний вид поля для ввода данных.
-    print '<label for="user_burg">Цена: </label>';
-    print '<select name="user_burg" id="user_burg">';
+//     // Внешний вид поля для ввода данных.
+//     print '<label for="user_burg">Цена: </label>';
+//     print '<select name="user_burg" id="user_burg">';
 
-    // Создаем и выводим массив, содержащий список городов.
-    $towns = array('Москва',
-       'Санкт-Петербург',
-       'Ярославль',
-       'Иркутск',
-       'Красноярск');
-    foreach ($towns as $town) {//цикл переберает весь массив и поочереди присваивает значение массива переменной $town
-        echo '<option value="'.$town.'"';//вписать значение элемента массива
-        if ($data == $town) echo ' selected="selected"';//Если элемент массива равен уже имеющему значению присваивается ключ selected ВЫБРАННЫЙ //<option value="Москва" selected="selected">Москва</option>
-        echo '>'.$town.'</option>';//закрыть тег с дописанием содержимого элементом массива
-    }//<option value="Москва">Москва</option>
+//     // Создаем и выводим массив, содержащий список городов.
+//     $towns = array('Москва',
+//        'Санкт-Петербург',
+//        'Ярославль',
+//        'Иркутск',
+//        'Красноярск');
+//     foreach ($towns as $town) {//цикл переберает весь массив и поочереди присваивает значение массива переменной $town
+//         echo '<option value="'.$town.'"';//вписать значение элемента массива
+//         if ($data == $town) echo ' selected="selected"';//Если элемент массива равен уже имеющему значению присваивается ключ selected ВЫБРАННЫЙ //<option value="Москва" selected="selected">Москва</option>
+//         echo '>'.$town.'</option>';//закрыть тег с дописанием содержимого элементом массива
+//     }//<option value="Москва">Москва</option>
 
-    print "</select>";
-}
+//     print "</select>";
+// }
 
 /**
  * Используем действие save_post для сохранения заполенной информации.
@@ -322,41 +329,41 @@ $allowedtags = array_merge ($allowedtags, $allowedtags_add);
 
 
 // удаляем строку email  и сайт в комментариях НАЧАЛО
-function remove_comment_fields($fields) {
-unset($fields['url']);
-unset($fields['email']);
-return $fields;
-}
-add_filter('comment_form_default_fields', 'remove_comment_fields');
+// function remove_comment_fields($fields) {
+// unset($fields['url']);
+// unset($fields['email']);
+// return $fields;
+// }
+// add_filter('comment_form_default_fields', 'remove_comment_fields');
 // удаляем строку email  и сайт в комментариях КОНЕЦ
 
 
 // Переместить Поле Текста Комментария Вниз НАЧАЛО
-function devise_move_comment_field_to_bottom( $fields ) {
-$comment_field = $fields['comment'];
-unset( $fields['comment'] );
-$fields['comment'] = $comment_field;
-return $fields;
-}
+// function devise_move_comment_field_to_bottom( $fields ) {
+// $comment_field = $fields['comment'];
+// unset( $fields['comment'] );
+// $fields['comment'] = $comment_field;
+// return $fields;
+// }
 
-add_filter( 'comment_form_fields', 'devise_move_comment_field_to_bottom' );
+// add_filter( 'comment_form_fields', 'devise_move_comment_field_to_bottom' );
 // Переместить Поле Текста Комментария Вниз КОНЕЦ
 
 
-//Замена миниатюры на первую картинку
-function catch_that_image() {
-  global $post, $posts;
-  $first_img = '';
-  ob_start();
-  ob_end_clean();
-  $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
-  $first_img = $matches [1] [0];
+	// //Замена миниатюры на первую картинку
+	// function catch_that_image() {
+	//   global $post, $posts;
+	//   $first_img = '';
+	//   ob_start();
+	//   ob_end_clean();
+	//   $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+	//   $first_img = $matches [1] [0];
 
-  if(empty($first_img)){ //Defines a default image
-    $first_img = meta_arr('Изображение');
-  }
-  return $first_img;
-}
+	//   if(empty($first_img)){ //Defines a default image
+	//     $first_img = meta_arr('Изображение');
+	//   }
+	//   return $first_img;
+	// }
 
 //НИ В КОЕМ СЛУЧАЕ НЕ ОСТАВЛЯТЬ ПУСТЫХ СТРОК ПОСЛЕ СИМВОЛА КОНЦА СТРОК
 ?>

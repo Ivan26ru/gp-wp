@@ -17,4 +17,4 @@ jQuery(document).ready(function(){
 			window.location = attr_a_href;//переходим по сссылке
 		// alert('ссылка на рублику' + attr_a);
 	});
-});
+});//Конец ready

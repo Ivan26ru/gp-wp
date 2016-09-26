@@ -1,13 +1,13 @@
 body {
 	min-width:350px; /*минимальная ширина сайта*/
-	background-color: white; /*белый фон*/
+	background: white url(../img/fon-body.jpeg) repeat;
 }
 
 footer{
 	max-width:960px;
 }
 
-.block2, .mesta-menu li .sub-menu, article, .sidebar, section, .block-2lv, .yandex-maps, .meta-category a, .home-page, .comment-list, .comment-list li, .menu-top li a, .button{ /*вид основных блоков сайта*/
+.block2, .mesta-menu li .sub-menu, article, .sidebar, section, .block-2lv, .yandex-maps, .meta-category a, .home-page, .comment-list, .comment-list li, .menu-top li a, .button, .shop-menu li a{ /*вид основных блоков сайта*/
 		background-color: #F5F5F5; /*серый фон*/
 		border: 1px solid grey; /*рамка*/
 box-shadow:         5px 11px 20px 0px rgba(50, 50, 50, 0.63); /*тень*/
@@ -20,7 +20,7 @@ margin-bottom:30px;/*внешний отступ*/
 
 
 /*Стиль золотых кнопок при наведении в навигации и золотой заголовок сайта*/
-.in-home-page, .navigation a:hover, .navigation li a:hover, .block_click:hover{
+.in-home-page, .navigation a:hover, .navigation li a:hover, .block_click:hover, .shop-menu li a:hover, .page-numbers a:hover{
 	background-color:white;
 	border-color:gold;
 	cursor: pointer;
@@ -85,13 +85,13 @@ h2 {
 }
 
 
-.block2 ul{
+.block21 ul, .info-li{
 	margin: auto;
 	padding:0;
 	text-align: center;
 }
 
-.block2 ul li{
+.block21 ul li, .info-li li{
 	display: inline-block;
 	padding: 15px;
 }
@@ -291,16 +291,11 @@ background-color:;
 padding:10px;
 border-radius:100px;
 border:2px grey solid;
-
-}
-
-
 }
 
 .page-numbers li span {
 	border:2px black solid;
 	background-color:white;
-
 }
 /*конец номеров страниц*/
 
@@ -320,17 +315,20 @@ border:2px grey solid;
 
 
 /* тень и небольшая рамка картинки */
-.single-img img{
+
+
+/* .single-img img{
 	text-align:center;
 	width:300px;
-	height:200px;
+	min-height:200px;
 	padding:5px;
+	margin:40px;
 
 -webkit-box-shadow: 5px 11px 20px 0px rgba(50, 50, 50, 0.63);
 -moz-box-shadow:    5px 11px 20px 0px rgba(50, 50, 50, 0.63);
 box-shadow:         5px 11px 20px 0px rgba(50, 50, 50, 0.63);
 border-radius:25px;
-}
+} */
 /* конец тень и небольшая рамка картинки */
 
 /*Описание рублики*/
@@ -452,3 +450,60 @@ blockquote {
 }
 
 /*ОБЪЯВЛЕНИЯ КОНЕЦ*/
+
+/*НАЧАЛО Товары в магазинах Светлограда*/
+.shop-menu{
+padding:0;
+}
+
+.shop-menu li{
+	display:inline-block;
+	list-style-type:none;
+
+}
+
+.shop-menu li a{
+	display:block;
+	padding:15px 10px;
+	margin:10px 0;
+	width:200px;
+}
+/*КОНЕЦ Товары в магазинах Светлограда*/
+
+
+.menu-top .vsvetlograde a{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	color: #ffffff;
+	padding: 10px 20px;
+	background: -moz-linear-gradient(
+		top,
+		#dbf4ff 0%,
+		#58b8e8 25%,
+		#0044d6);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#dbf4ff),
+		color-stop(0.25, #58b8e8),
+		to(#0044d6));
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	border: 1px solid #004ab8;
+	-moz-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px -1px 0px rgba(255,255,255,0.7);
+	-webkit-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px -1px 0px rgba(255,255,255,0.7);
+	box-shadow:
+		0px 1px 3px rgba(000,000,000,0.5),
+		inset 0px -1px 0px rgba(255,255,255,0.7);
+	text-shadow:
+		0px -1px 1px rgba(000,000,000,0.2),
+		0px 1px 0px rgba(255,255,255,0.3);
+}
+
+body .menu-top .vsvetlograde a:hover{
+	border-color:black;
+}

@@ -31,15 +31,15 @@ $on_off = 'true';//крайняя переменная, если запись в
 
 meta_teg($li,$span,$teg_class,$no_data,'Адрес','Адрес','','',$on_off);//вывод адреса
 meta_teg($li,$span,$teg_class,$no_data,'Адрес','Адрес(Светлоград)',$adres_svetlograd,'',$on_off);//вывод адреса
-meta_teg($li,$span,$teg_class,$no_data,'Почтовый индекс','Почтовый индекс','','');//вывод индекса(если его нет выводится 356530)
-meta_teg($li,$span,$teg_class,$no_data,'Городской телефон','Телефон(86547)',$telefon_cod_svetlograd,'');//вывод номеров телефона
+meta_teg($li,$span,$teg_class,$no_data,'Почтовый индекс','Почтовый индекс','','',$on_off);//вывод индекса(если его нет выводится 356530)
+meta_teg($li,$span,$teg_class,$no_data,'Городской телефон','Телефон(86547)',$telefon_cod_svetlograd,'',$on_off);//вывод номеров телефона
 meta_teg($li,$span,$teg_class,$no_data,$name_title,$phone,'','',$on_off);//вывод номеров телефона
 meta_teg($li,$span,$teg_class,$no_data,'Факс','факс','','',$on_off);//вывод номеров телефона
 meta_teg($li,$span,$teg_class,$no_data,'Факс','факс(86547)',$telefon_cod_svetlograd,'',$on_off);//вывод номеров телефона
-meta_teg($li,$span,$teg_class,$no_data,'Руководитель','Руководитель','','');//вывод руководителя
-meta_teg($li,$span,$teg_class,$no_data,'Адрес сайта','сайт','','');//вывод адреса сайта
-meta_teg($li,$span,$teg_class,$no_data,'E-mail','E-mail');//вывод E-mail
-meta_teg($li,$span,$teg_class,$no_data,'Время работы','время работы','','');//вывод E-mail
+meta_teg($li,$span,$teg_class,$no_data,'Руководитель','Руководитель','','',$on_off);//вывод руководителя
+meta_teg($li,$span,$teg_class,$no_data,'Адрес сайта','сайт','','',$on_off);//вывод адреса сайта
+meta_teg($li,$span,$teg_class,$no_data,'E-mail','E-mail','','',$on_off);//вывод E-mail
+meta_teg($li,$span,$teg_class,$no_data,'Время работы','время работы','','',$on_off);//вывод E-mail
 // meta_teg('div','','yandex-maps','','','yandex.maps',$on_off);//вывод карты яндекса
 //meta_teg($li,$span,$teg_class,'Время работы','время работы');//вывод время работы
 
@@ -61,7 +61,26 @@ yandex_maps_shortcode('yandex-maps');//функция вывода карты и
 </div>
 
 	<div class="block-2lv">
-		<?php if (comments_open() || get_comments_number()) comments_template('', true); // если комментирование открыто - мы покажем список комментариев и форму, если закрыто, но кол-во комментов > 0 - покажем только список комментариев ?>
+	<!-- отключение стандартных комментариев -->
+		<?php //if (comments_open() || get_comments_number()) comments_template('', true); // если комментирование открыто - мы покажем список комментариев и форму, если закрыто, но кол-во комментов > 0 - покажем только список комментариев ?>
+<!-- НАЧАЛО ВК кнопка сохранить -->
+<!-- Put this script tag to the place, where the Share button will be -->
+<script type="text/javascript">
+document.write(VK.Share.button(false,{type: "round", text: "Сохранить в ВК"}));
+</script>
+<!-- КОНЕЦ ВК кнопка сохранить -->
+
+<br>
+<noindex>
+	<!-- НАЧАЛО комментарии из ВК -->
+	<!-- Put this div tag to the place, where the Comments block will be -->
+	<div id="vk_comments"></div>
+	<script type="text/javascript">
+	VK.Widgets.Comments("vk_comments", {limit: 10, width: "800", attach: "*"});
+	</script>
+	<!-- КОНЕЦ комментарии из ВК -->
+</noindex>
+
 	</div>
 </section>
 

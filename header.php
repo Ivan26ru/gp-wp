@@ -39,12 +39,48 @@ the_title();//Заголовок страницы
  -->
 	<!-- Подключение моего скрипта -->
 	<script src="<?php echo get_template_directory_uri(); // абсолютный путь до темы ?>/js/myjs.js"></script>
+
+<!-- НАЧАЛО кнопка сохранить из ВК -->
+<!-- Put this script tag to the <head> of your page -->
+<script type="text/javascript" src="http://vk.com/js/api/share.js?93" charset="windows-1251"></script>
+<!-- КОНЕЦ кнопка сохранить из ВК -->
+
+<!-- НАЧАЛО коммента из ВК -->
+<!-- Put this script tag to the <head> of your page -->
+<script type="text/javascript" src="//vk.com/js/api/openapi.js?121"></script>
+<script type="text/javascript">
+  VK.init({apiId: 5314853, onlyWidgets: true});
+</script>
+<!-- КОНЕЦ комменты из ВК -->
  </head>
-<body <?php body_class(); // все классы для body ?>>
+<body <?php body_class(ret); // все классы для body ?> oncopy="return false;">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-73585409-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<!-- // плавающий фон НАЧАЛО -->
+<script type="text/javascript">
+// var bg_Offset = 0;
+// function scroll_bg(){
+//     bg_Offset = bg_Offset + 1;
+//     if (bg_Offset > 800) bg_Offset = 0;
+//     jQuery(".ret").css("backgroundPosition", bg_Offset + "px 0px");
+// }
+// jQuery(document).ready(function(){ setInterval("scroll_bg()",40); });
+</script>
+<!-- // плавающий фон КОНЕЦ -->
+
 	<header>
 			<!-- Базовая информация Светлоград -->
 			<div class="block1 block-title">
-				<h1 class="block2 in-home-page block_click"><a class="logo-titile block_click_a" href="<?php echo home_url(); ?>">v-Svetlograde.ru Городской портал Светлограда</a></h1>
+				<h1 class="block2 in-home-page block_click"><a class="logo-titile block_click_a" href="<?php echo home_url(); ?>">v-Svetlograde.ru Городской справочник Светлограда</a></h1>
 				<!-- <h1 class="logo-name"><a href="<?php echo home_url(); ?>">v-Svetlograde.ru</a></h1> -->
 				<div class="block2 block-title-2">
 					<ul class="info-li">
@@ -57,8 +93,8 @@ the_title();//Заголовок страницы
 						<li><i class="fa fa-taxi fa-2x"></i>от 50 рублей</li>
 						<li><i class="fa fa-envelope-o fa-2x"></i>356530</li>
 
-						<li><a href="http://ok.ru/vsvetlograde"><i class="fa fa-odnoklassniki fa-2x"></i>группа в портала в ОК</a></li>
-						<li><a href="http://vk.com/v_svetlograde"><i class="fa fa-vk fa-2x"></i>группа в портала в VK</a></li>
+						<li><a href="http://ok.ru/vsvetlograde"><i class="fa fa-odnoklassniki fa-2x"></i>группа в справочника в ОК</a></li>
+						<li><a href="http://vk.com/v_svetlograde"><i class="fa fa-vk fa-2x"></i>группа в справочника в VK</a></li>
 					</ul>
 					<div class="yandex-pogoda">
 						<a href="https://clck.yandex.ru/redir/dtype=stred/pid=7/cid=1228/*https://pogoda.yandex.ru/svetlograd" target="_blank"><img src="//info.weather.yandex.net/svetlograd/3.ru.png?domain=ru" border="0" alt="Яндекс.Погода"/><img width="1" height="1" src="https://clck.yandex.ru/click/dtype=stred/pid=7/cid=1227/*https://img.yandex.ru/i/pix.gif" alt="" border="0"/></a>
@@ -68,7 +104,9 @@ the_title();//Заголовок страницы
 			<!-- конец базовой информации Светлоград -->
 
 	</header>
-
+<div class="width960 block2 remont">
+	<a href="http://v-svetlograde.ru/remont-pk/"><h1>Ремонт компьютеров <span>8-988-709-55-59</span></h1></a>
+</div>
 <!-- форма авторизации -->
 <!-- <div class="block2 authorization">
 
